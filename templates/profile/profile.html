@@ -1,0 +1,105 @@
+{% include 'navbar/navbar.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .bg{
+        background-image: url('{% static 'image/bg1.jpg' %}');
+    }
+    .center {
+        margin:100px;
+        
+        
+        text-align: center;
+        }
+    </style>
+    <body class="bg">
+      <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
+></script>
+<div class="center">
+<form method='POST' action='{% url 'profile_fixed' %}'>
+    {% csrf_token %}
+    <div
+<div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Nom</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" name="nom">
+    </div> 
+  </div>
+  
+<div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Prénom</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" name="prenom">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">sexe</label>
+    <div class="col-sm-10">
+    <select class="form-control"  name="sexe">
+      <option selected value="Homme">Homme</option>
+      <option value="Femme">Femme</option>
+      
+    </select>
+  </div>
+  </div> 
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label" >Date De Naissance</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" id="inputPassword" name="date">
+    </div>
+  </div>
+  
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputPassword" name="email">
+    </div>
+  </div>
+      
+  
+<div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label" class="text-white bg-dark">ville</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" name="ville">
+    </div>
+  </div>
+  <div class="mb-3 row"> 
+
+<div class="mb-3 row">
+      <label for="inputPassword" class="col-sm-2 col-form-label" class="text-white bg-dark">contact</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword" name="contact">
+      </div>
+    </div>
+    <div class="mb-3 row"> 
+    
+        <input type="submit"  class="btn btn-outline-success" id="inputPassword" value='Save'> 
+    
+</div>
+</div>
+</form>  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+{% endblock content %}
+{% include 'navbar/footer.html' %}

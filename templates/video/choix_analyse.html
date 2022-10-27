@@ -1,0 +1,50 @@
+{% include 'navbar/navbar.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .bg{
+        background-image: url('{% static 'image/bg1.jpg' %}');
+    }
+    .center {
+        margin:100px;
+        
+        
+        text-align: center;
+        }
+    </style>
+    <body class="bg">
+<div class="center" >
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body" >
+          <img src="{% static 'image/streaming_cam.png' %}" class="figure-img img-fluid rounded" alt="...">
+          <a href="{% url 'streaming_open' id %}" class="btn btn-primary">Streaming analyse</a>
+        </div>
+      </div>
+    </div>
+    
+   
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body" >
+          <form method='POST' action='{% url 'analyse' id %}'>
+            {% csrf_token %}
+          <img src="{% static 'image/video.png' %}" class="figure-img img-fluid rounded" alt="...">
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02" name="file" accept=".mp4">
+           
+          </div>
+          <input type="submit"  class="btn btn-primary" id="inputPassword" value='Video analyse'>
+        </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+ 
+</div>
+<body>
+{% endblock content %}
+{% include 'navbar/footer.html' %}

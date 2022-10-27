@@ -1,0 +1,31 @@
+{% include 'navbar/navbar.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .bg{
+      background-image: url('{% static 'image/bg1.jpg' %}');
+  }
+  .center {
+      margin:100px;
+      text-align: center;
+      }
+</style>
+<body class="bg">
+<div class="center">
+  <title>Streaming</title>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{% url 'video' id %}" alt="First slide">
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    
+</body>
+
+{% endblock content %}
+{% include 'navbar/footer.html' %}

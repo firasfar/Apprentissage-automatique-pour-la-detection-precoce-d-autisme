@@ -1,0 +1,172 @@
+{% include 'navbar/navbar.html' %}
+{% block content %}
+{% load static %}
+<head>
+  <title>information</title>
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet" href="{% static 'css/styles/style.css' %}">
+<style>
+  .bg{
+      background-image: url('{% static 'image/bg1.jpg' %}');
+  }
+  .center {
+      margin:100px;
+      margin      
+      
+      text-align: center;
+      }
+  .center1 {
+        margin:180px;
+        
+        
+        text-align: center;
+        }
+        .thead1 { display: block;
+          width: 100% }
+
+.tbody1 {
+  display: block;
+    height: 300px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+  </style>
+</head>
+<div >
+<body class="bg">
+  <div >
+<div class="center " Class="container mt-3">
+  <div class="card">
+    <div class="card">
+      <h5 class="card-title">Information de patient</h5>
+      <table class="table align-middle mb-0 bg-white">
+      
+        <tr>
+          <td class="fw-bold mb-1">Nom   :</td>
+          <td>{{profile.nom|title}}</td>
+          <td class="fw-bold mb-1">Prénom   :</td>
+          <td>{{profile.prenom|title}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold mb-1">Sexe   :</td>
+          <td>{{profile.sexe|title}}</td>
+          <td class="fw-bold mb-1">Date De Naissance   :</td>
+          <td>{{profile.date|title}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold mb-1">Email   :</td>
+          <td>{{profile.email}}</td>
+          <td class="fw-bold mb-1">Ville   :</td>
+          <td>{{profile.ville|title}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold mb-1">Contact   :</td>
+          <td>{{profile.contact|title}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+     
+    </table>
+    </div>
+  </div>
+  
+</br>
+<div class="container">
+<div class="card">
+  <div class="box">
+    <div class="percent">
+      <svg>
+        <circle cx="70" cy="70" r="70"></circle>
+        <circle cx="70" cy="70" r="70"></circle>
+      </svg>
+      <div class="number">
+        <h2>{{autism}}<span>%</span></h2>
+      </div>
+    </div>
+    <h2 class="text">Autism</h2>
+  </div>
+</div>
+
+<div class="card">
+  <div class="box">
+      <div class="percent">
+          <svg>
+  <circle cx="70" cy="70" r="70"></circle>
+  <circle cx="70" cy="70" r="70"></circle>
+</svg>
+          <div class="number">
+              <h2>{{no_autism}}<span>%</span></h2>
+          </div>
+      </div>
+      <h2 class="text">No Autism</h2>
+  </div>
+</div>
+</div>
+</br>
+<div >
+<div >
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light thead1">
+    <tr>
+      <th>#</th>
+      <th>Eye Left X</th>
+      <th>Eye Left Y</th>
+      <th>Eye Right X</th>
+      <th>Eye Right X</th>
+      <th>Prediction</th>
+      <th>Classe</th>
+      
+    </tr>
+  </thead>
+  <tbody class="tbody1" >   
+    
+    
+        {% for i,j in Data %}
+    <tr >
+      
+      <td>
+        <p class="fw-bold mb-1">{{j}}</p>
+      </td>
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{i.x1}}</p>
+          </div>
+        </div> 
+      </td>
+      <td>
+        <p class="fw-bold mb-1">{{i.y1}}</p>
+      </td>
+      <td>
+        <p class="fw-bold mb-1">{{i.x2}}</p>
+      </td>
+      <td>
+        <p class="fw-bold mb-1">{{i.y2}}</p>
+      </td>
+      <td>
+        <p class="fw-bold mb-1">{{i.predict}}</p>
+      </td>
+      <td>
+        <p class="fw-bold mb-1">{{i.classe|title}}</p>
+      </td>
+     
+     
+     
+     
+    </tr>
+    {% endfor %}
+  
+  </tbody>
+</table>
+</div>
+
+</body>
+</div>
+{% endblock content %}
+{% include 'navbar/footer.html' %}
+
+
+
+
